@@ -9,7 +9,7 @@ void handleGenericArgs() { //Handler
 String message="{";
 //int last = (server.args()-1);
 //for (int i = 0; i < server.args(); i++) {
-  
+ /*---------- Hard way
   if(server.arg(0)==(String)relay[0] && server.arg(1)=="0"){
     digitalWrite (relay[0], HIGH );
     Serial.print((String)relay[0]+" high");
@@ -24,7 +24,17 @@ String message="{";
     digitalWrite (relay[1], LOW );
     Serial.print((String)relay[1]+" low");
   }
-
+  
+ Make it simple --------------------------------------------*/
+for(int i=0;i<2;i++){
+  if(server.arg(1)=="0"){
+    digitalWrite (server.arg(0), HIGH );
+    Serial.print((String)relay[0]+" high");
+  }else if(server.arg(1)=="0"){
+    digitalWrite (server.arg(0), LOW );
+    Serial.print((String)relay[0]+" low");
+  }
+}
   message += "\"name\" :\"" + server.arg(0) + " \",";   
   message += "\"status\":"+server.arg(1) + "";             
 //  if(i!=last){
