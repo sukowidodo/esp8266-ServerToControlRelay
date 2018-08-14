@@ -3,12 +3,11 @@
 
 ESP8266WebServer server(80);
 uint8_t relay[3]= {D1,D2,D3};
-const char *imei = "357700061240713";
 
 void handleGenericArgs() { //Handler
                            //Add a new line
 String message="{";
-int last = (server.args()-1);
+//int last = (server.args()-1);
 //for (int i = 0; i < server.args(); i++) {
   
   if(server.arg(0)==(String)relay[0] && server.arg(1)=="0"){
@@ -82,7 +81,7 @@ Serial.println("List of surrounding Network SSIDs…:");
 int n = WiFi.scanNetworks();
 for (int i = 0; i < n; i++)
 {
-Serial.println(WiFi.SSID(i));
+  Serial.println(WiFi.SSID(i));
 }
 Serial.println();
 
@@ -93,8 +92,8 @@ WiFi.begin("sukowi", "takonsopo");
 Serial.println("Connecting");
 while (WiFi.status() != WL_CONNECTED)
 {
-delay(500);
-Serial.print(".");
+  delay(500);
+  Serial.print(".");
 }
 Serial.println();
 
